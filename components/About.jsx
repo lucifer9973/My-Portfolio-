@@ -1,7 +1,7 @@
 import { assets, infoList, toolsData } from '@/assets/assets'
 import Image from 'next/image'
 import React, { useState } from 'react'
-import { motion } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
 
 const About = ({ isDarkMode, internships = [], achievements = [], certifications = [] }) => {
   const [showInternships, setShowInternships] = useState(false)
@@ -14,7 +14,6 @@ const About = ({ isDarkMode, internships = [], achievements = [], certifications
       whileInView={{ opacity: 1 }}
       transition={{ duration: 1 }}
     >
-      {/* Headings */}
       <motion.h4
         initial={{ opacity: 0, y: -20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -31,14 +30,12 @@ const About = ({ isDarkMode, internships = [], achievements = [], certifications
         About Me
       </motion.h2>
 
-      {/* Image and Content */}
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
         className='grid grid-cols-1 lg:grid-cols-4 gap-8 items-start my-20'>
 
-        {/* Profile Image */}
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
@@ -47,7 +44,6 @@ const About = ({ isDarkMode, internships = [], achievements = [], certifications
           <Image src={assets.profilepicture} alt='user' className='w-64 sm:w-80 rounded-3xl' />
         </motion.div>
 
-        {/* Text Content */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -58,7 +54,6 @@ const About = ({ isDarkMode, internships = [], achievements = [], certifications
             I'm a passionate and detail-oriented software developer with hands-on experience in building scalable web and mobile applications using modern technologies like Python, JavaScript (React.js, Node.js), MongoDB, and Firebase. I enjoy transforming ideas into real-world solutions and have built full-stack applications, RESTful APIs, and interactive Android apps using Kotlin and Jetpack Compose.
           </p>
 
-          {/* Info Boxes */}
           <motion.ul
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -76,7 +71,6 @@ const About = ({ isDarkMode, internships = [], achievements = [], certifications
             ))}
           </motion.ul>
 
-          {/* Tools */}
           <motion.h4
             initial={{ y: 20, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
@@ -100,61 +94,63 @@ const About = ({ isDarkMode, internships = [], achievements = [], certifications
 
           {/* Expandable Sections */}
           <section className='mt-10 max-w-2xl mx-auto'>
-            <button onClick={() => setShowInternships(!showInternships)} className='text-xl font-semibold mb-2 text-left dark:text-white border p-3 rounded-xl w-full hover:bg-lightHover dark:hover:bg-darkHover/30 transition-all'>
-              Internships
-            </button>
-            {showInternships && internships.map(({ company, role, duration, details }, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4 }}
-                className='border rounded-xl p-4 my-4 dark:border-white border-gray-400'>
-                <h4 className='font-semibold dark:text-white'>{company} | {role}</h4>
-                <p className='italic text-sm text-gray-600 dark:text-gray-300'>{duration}</p>
-                <ul className='list-disc list-inside text-gray-700 dark:text-white'>
-                  {details.map((detail, i) => (
-                    <li key={i}>{detail}</li>
+            <button onClick={() => setShowInternships(!showInternships)} className='text-xl font-semibold mb-2 text-left dark:text-white border p-3 rounded-xl w-full hover:bg-lightHover dark:hover:bg-darkHover/30 transition-all'>Internships</button>
+            <AnimatePresence>
+              {showInternships && internships.map(({ company, role, duration, details }, idx) => (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: 'auto' }}
+                  exit={{ opacity: 0, height: 0 }}
+                  transition={{ duration: 0.4 }}
+                  className='border rounded-xl p-4 my-4 dark:border-white border-gray-400 overflow-hidden'>
+                  <h4 className='font-semibold dark:text-white'>{company} | {role}</h4>
+                  <p className='italic text-sm text-gray-600 dark:text-gray-300'>{duration}</p>
+                  <ul className='list-disc list-inside text-gray-700 dark:text-white'>
+                    {details.map((detail, i) => (
+                      <li key={i}>{detail}</li>
+                    ))}
+                  </ul>
+                </motion.div>
+              ))}
+            </AnimatePresence>
+          </section>
+
+          <section className='mt-10 max-w-2xl mx-auto'>
+            <button onClick={() => setShowAchievements(!showAchievements)} className='text-xl font-semibold mb-2 text-left dark:text-white border p-3 rounded-xl w-full hover:bg-lightHover dark:hover:bg-darkHover/30 transition-all'>Achievements</button>
+            <AnimatePresence>
+              {showAchievements && (
+                <motion.ul
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: 'auto' }}
+                  exit={{ opacity: 0, height: 0 }}
+                  transition={{ duration: 0.4 }}
+                  className='list-disc list-inside text-gray-700 dark:text-white border rounded-xl p-4 my-4 overflow-hidden'>
+                  {achievements.map((achievement, idx) => (
+                    <li key={idx}>{achievement}</li>
                   ))}
-                </ul>
-              </motion.div>
-            ))}
+                </motion.ul>
+              )}
+            </AnimatePresence>
           </section>
 
           <section className='mt-10 max-w-2xl mx-auto'>
-            <button onClick={() => setShowAchievements(!showAchievements)} className='text-xl font-semibold mb-2 text-left dark:text-white border p-3 rounded-xl w-full hover:bg-lightHover dark:hover:bg-darkHover/30 transition-all'>
-              Achievements
-            </button>
-            {showAchievements && (
-              <motion.ul
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4 }}
-                className='list-disc list-inside text-gray-700 dark:text-white border rounded-xl p-4 my-4'>
-                {achievements.map((achievement, idx) => (
-                  <li key={idx}>{achievement}</li>
-                ))}
-              </motion.ul>
-            )}
+            <button onClick={() => setShowCertifications(!showCertifications)} className='text-xl font-semibold mb-2 text-left dark:text-white border p-3 rounded-xl w-full hover:bg-lightHover dark:hover:bg-darkHover/30 transition-all'>Certifications</button>
+            <AnimatePresence>
+              {showCertifications && (
+                <motion.ul
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: 'auto' }}
+                  exit={{ opacity: 0, height: 0 }}
+                  transition={{ duration: 0.4 }}
+                  className='list-disc list-inside text-gray-700 dark:text-white border rounded-xl p-4 my-4 overflow-hidden'>
+                  {certifications.map((cert, idx) => (
+                    <li key={idx}>{cert}</li>
+                  ))}
+                </motion.ul>
+              )}
+            </AnimatePresence>
           </section>
-
-          <section className='mt-10 max-w-2xl mx-auto'>
-            <button onClick={() => setShowCertifications(!showCertifications)} className='text-xl font-semibold mb-2 text-left dark:text-white border p-3 rounded-xl w-full hover:bg-lightHover dark:hover:bg-darkHover/30 transition-all'>
-              Certifications
-            </button>
-            {showCertifications && (
-              <motion.ul
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4 }}
-                className='list-disc list-inside text-gray-700 dark:text-white border rounded-xl p-4 my-4'>
-                {certifications.map((cert, idx) => (
-                  <li key={idx}>{cert}</li>
-                ))}
-              </motion.ul>
-            )}
-          </section>
-
         </motion.div>
       </motion.div>
     </motion.div>
