@@ -22,7 +22,7 @@ const About = ({isDarkMode}) => {
       whileInView={{opacity: 1, y: 0}}
       transition={{duration: 0.5, delay: 0.5}}
       className='text-center text-5xl font-Ovo'>
-        About me</motion.h2>
+        About Me</motion.h2>
 
         <motion.div 
         initial={{opacity: 0}}
@@ -34,7 +34,7 @@ const About = ({isDarkMode}) => {
             whileInView={{opacity: 1, scale: 1}}
             transition={{duration: 0.6}}
             className='w-64 sm:w-80 rounded-3xl max-w-none'>
-                <Image src={assets.profilepicture} alt='user' className='w-full rounded-3xl'/>
+            <Image src={assets.profilepicture} alt='user' className='w-full rounded-3xl'/>
             </motion.div>
             <motion.div 
             initial={{opacity: 0}}
@@ -42,7 +42,7 @@ const About = ({isDarkMode}) => {
             transition={{duration: 0.6, delay: 0.8}}
             className='flex-1'>
                 <p className='mb-10 max-w-2xl font-Ovo'
-                >I'm a passionate Full Stack Developer with a strong foundation in both frontend and backend technologies. I enjoy building scalable web applications and have a deep interest in solving complex problems using Data Structures and Algorithms. With a focus on clean code and performance, I strive to create solutions that are both efficient and user-friendly.</p>
+                >I'm a passionate and detail-oriented software developer with hands-on experience in building scalable web and mobile applications using modern technologies like Python, JavaScript (React.js, Node.js), MongoDB, and Firebase. I enjoy transforming ideas into real-world solutions and have built full-stack applications, RESTful APIs, and interactive Android apps using Kotlin and Jetpack Compose.</p>
 
                 <motion.ul
                 initial={{opacity: 0}}

@@ -35,8 +35,8 @@ import right_arrow from './right-arrow.png';
 import send_icon from './send-icon.png';
 import right_arrow_bold from './right-arrow-bold.png';
 import right_arrow_bold_dark from './right-arrow-bold-dark.png';
-import ylogo1 from './ylogo1.png';
-import ylogo2 from './ylogo2.png';
+import ylogo1 from './ylogo1.gif';
+import ylogo2 from './ylogo2.gif';
 import leetcode from './leetcode.png';
 import gfg from './gfg.png';
 import cloud from './cloud.png';
@@ -92,44 +92,69 @@ export const assets = {
 
 export const workData = [
     {
-        title: 'Frontend Project',
-        description: 'Travel Tour Website',
-        bgImage: '/work-1.png',
-        link: 'https://travel-tour-website-eta.vercel.app/',
+        title: 'Android Development',
+        description: 'Tic Tac Toe Game (Jetpack Compose)',
+        bgImage: '/tictac.png',
+        link: 'https://github.com/lucifer9973/tictactoe-app',
     },
     {
-        title: 'Fullstack Project',
-        description: 'Forever - Ecommerce Website',
+        title: 'Full Stack Development',
+        description: 'Weather Dashboard',
         bgImage: '/work-2.png',
-        link: 'https://forever-frontend-b0cv.onrender.com',
+        link: 'https://weather-dashboard-brown-two.vercel.app/',
     },
     {
-        title: 'Fullstack Project',
-        description: 'InsiderJobs - Job Portal Website',
+        title: 'Machine Learning',
+        description: 'Water Potability Prediction App',
         bgImage: '/work-3.png',
-        link: 'https://job-portal-fullstack-client-two.vercel.app/',
+        link: 'https://water-quality-app.onrender.com/',
     },
     {
-        title: 'Fullstack Project',
-        description: 'Prescripto - Doctor Appointment Website',
+        title: 'REST API Project',
+        description: 'Task Management API (Node.js + MongoDB)',
         bgImage: '/work-4.png',
-        link: 'https://prescripto-frontend-five.vercel.app/',
+        link: 'https://github.com/lucifer9973/task-manager-api',
     },
 ]
 
 export const serviceData = [
-    { icon: assets.web_icon, title: 'Frontend Development', description: 'Passionate about building responsive, user-friendly interfaces with modern frontend tools like React, Tailwind, and JavaScript. Keen on crafting clean, maintainable UI code and optimizing performance for real-world applications. Enjoys turning complex problems into intuitive digital experiences through thoughtful frontend architecture and UX principles.' },
-    { icon: assets.web_icon, title: 'Backend development', description: 'Enthusiastic about building robust, scalable server-side applications using Node.js, Express, and MongoDB. Skilled in designing RESTful APIs, handling authentication, and integrating databases for full-stack functionality. Focused on writing clean, modular backend code with attention to performance, security, and maintainability.'},
-    { icon: assets.ui_icon, title: 'Data Structures and Algorithms', description: 'Regularly practice DSA to strengthen problem-solving skills and deepen understanding of core computer science concepts. Confident in applying algorithms and data structures to write efficient, optimized code for real-world challenges. Active on coding platforms like LeetCode and GeeksforGeeks, with a focus on improving speed and accuracy in competitive programming.'},
-    
+    {
+        icon: assets.web_icon,
+        title: 'Frontend Development',
+        description: 'Built interactive and responsive user interfaces using React, Next.js, and Tailwind CSS. Developed dashboards and real-time apps with clean UI/UX, optimized for performance and accessibility.'
+    },
+    {
+        icon: assets.web_icon,
+        title: 'Backend Development',
+        description: 'Designed scalable RESTful APIs using Node.js and Express, integrated MongoDB for persistent storage, and handled user authentication and secure data flow in full-stack applications.'
+    },
+    {
+        icon: assets.ui_icon,
+        title: 'Machine Learning & DSA',
+        description: 'Worked on supervised ML models for classification tasks. Consistently practice Data Structures and Algorithms on platforms like LeetCode and HackerRank to improve problem-solving efficiency.'
+    },
 ]
 
 export const infoList = [
-    { icon: assets.code_icon, iconDark: assets.code_icon_dark, title: 'Languages', description: 'HTML, CSS, JavaScript, React Js, Next Js, Express Js, Node Js, MongoDB' },
-    { icon: assets.edu_icon, iconDark: assets.edu_icon_dark, title: 'Education', description: 'B.Tech in Computer Science' },
-    { icon: assets.project_icon, iconDark: assets.project_icon_dark, title: 'Projects', description: 'Built more than 3 projects' }
+    {
+        icon: assets.code_icon,
+        iconDark: assets.code_icon_dark,
+        title: 'Languages & Tools',
+        description: 'JavaScript, Python, React.js, Node.js, Express, MongoDB, Firebase, Next.js, Kotlin, SQL, AWS'
+    },
+    {
+        icon: assets.edu_icon,
+        iconDark: assets.edu_icon_dark,
+        title: 'Education',
+        description: 'B.Tech in Computer Science – KIIT University'
+    },
+    {
+        icon: assets.project_icon,
+        iconDark: assets.project_icon_dark,
+        title: 'Projects',
+        description: 'Built 5+ real-world projects in full stack, Android, ML, and API development'
+    }
 ];
-
 export const toolsData = [
     assets.vscode, assets.leetcode, assets.mongodb, assets.gfg, assets.git, 
 ];
