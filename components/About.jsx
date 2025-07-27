@@ -4,6 +4,50 @@ import React from 'react'
 import { motion } from "motion/react"
 
 const About = ({isDarkMode}) => {
+
+  const links = {
+    linkedin: 'https://www.linkedin.com/in/shobhit-raj9973/',
+    github: 'https://github.com/lucifer9973'
+  };
+
+  const internships = [
+    {
+      company: 'AICTE-Google',
+      role: 'Android Developer Intern',
+      duration: 'Aug 2023 – Dec 2023 | Remote',
+      details: [
+        'Built Android app with intuitive Material UI using best practices.',
+        'Integrated Firebase and cloud tools for real-time AI-powered features.'
+      ]
+    },
+    {
+      company: 'Keploy',
+      role: 'API Fellow',
+      duration: 'May 2024 – Jul 2024 | Remote',
+      details: [
+        'Hands-on API development and testing using Postman and OpenAPI.',
+        'Contributed to open source and solved backend debugging tasks.'
+      ]
+    }
+  ];
+
+  const achievements = [
+    'Completed AICTE-Google Developer Android Training Program.',
+    'Completed AICTE-Google AI/ML Internship with cloud integration.',
+    'Top 5% in HackerRank SQL and Problem Solving Certification.',
+    'Successfully contributed to open source in Keploy Fellowship.',
+  ];
+
+  const certifications = [
+    'AWS Academy Cloud Computing Badge',
+    'Cisco JavaScript Certification',
+    'HackerRank Problem Solving (Basic)',
+    'HackerRank SQL (Basic)',
+    'Cisco Cybersecurity',
+    'Cisco Python Essentials',
+    'Cisco CCNA – Networking & Automation'
+  ];
+
   return (
     <motion.div id='about' className='w-full px-[12%] py-10 scroll-mt-20'
     initial={{opacity: 0}}
@@ -49,7 +93,7 @@ const About = ({isDarkMode}) => {
                 whileInView={{opacity: 1}}
                 transition={{duration: 0.8, delay: 1}}
                 className='grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-2xl'>
-                    {infoList.map(({icon, iconDark, title, description}, index)=>(
+                    {infoList.map(({icon, iconDark, title, description}, index)=>(  
                         <motion.li 
                         whileHover={{scale: 1.05}}
                         className='border-[0.5px] border-gray-400 rounded-xl p-6 cursor-pointer hover:bg-lightHover hover:-translate-y-1 duration-500 hover:shadow-black dark:border-white dark:hover:shadow-white dark:hover:bg-darkHover/50'
@@ -72,7 +116,7 @@ const About = ({isDarkMode}) => {
                 whileInView={{ opacity: 1 }}
                 transition={{ delay: 1.5, duration: 0.6 }}
                 className='flex items-center gap-3 sm:gap-5'>
-                    {toolsData.map((tool, index)=>(
+                    {toolsData.map((tool, index)=>(  
                         <motion.li 
                         whileHover={{ scale: 1.1 }}
                         className='flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-400 rounded-lg cursor-pointer hover:-translate-y-1 duration-500'
@@ -81,48 +125,49 @@ const About = ({isDarkMode}) => {
                         </motion.li>
                     ))}
                 </motion.ul>
-              {/* New Sections */}
 
-<section className='mt-10 max-w-2xl mx-auto'>
-    <h3 className='text-2xl font-semibold mb-4 dark:text-white'>Links</h3>
-    <ul className='list-disc list-inside text-gray-700 dark:text-white'>
-        <li><a href={links.linkedin} target='_blank' rel='noopener noreferrer' className='underline'>LinkedIn</a></li>
-        <li><a href={links.github} target='_blank' rel='noopener noreferrer' className='underline'>GitHub</a></li>
-    </ul>
-</section>
+                {/* New Sections */}
 
-<section className='mt-10 max-w-2xl mx-auto'>
-    <h3 className='text-2xl font-semibold mb-4 dark:text-white'>Internships</h3>
-    {internships.map(({ company, role, duration, details }, idx) => (
-        <div key={idx} className='mb-6'>
-            <h4 className='font-semibold dark:text-white'>{company} | {role}</h4>
-            <p className='italic text-sm text-gray-600 dark:text-gray-300'>{duration}</p>
-            <ul className='list-disc list-inside text-gray-700 dark:text-white'>
-                {details.map((detail, i) => (
-                    <li key={i}>{detail}</li>
-                ))}
-            </ul>
-        </div>
-    ))}
-</section>
+                <section className='mt-10 max-w-2xl mx-auto'>
+                    <h3 className='text-2xl font-semibold mb-4 dark:text-white'>Links</h3>
+                    <ul className='list-disc list-inside text-gray-700 dark:text-white'>
+                        <li><a href={links.linkedin} target='_blank' rel='noopener noreferrer' className='underline'>LinkedIn</a></li>
+                        <li><a href={links.github} target='_blank' rel='noopener noreferrer' className='underline'>GitHub</a></li>
+                    </ul>
+                </section>
 
-<section className='mt-10 max-w-2xl mx-auto'>
-    <h3 className='text-2xl font-semibold mb-4 dark:text-white'>Achievements</h3>
-    <ul className='list-disc list-inside text-gray-700 dark:text-white'>
-        {achievements.map((achievement, idx) => (
-            <li key={idx}>{achievement}</li>
-        ))}
-    </ul>
-</section>
+                <section className='mt-10 max-w-2xl mx-auto'>
+                    <h3 className='text-2xl font-semibold mb-4 dark:text-white'>Internships</h3>
+                    {internships.map(({ company, role, duration, details }, idx) => (
+                        <div key={idx} className='mb-6'>
+                            <h4 className='font-semibold dark:text-white'>{company} | {role}</h4>
+                            <p className='italic text-sm text-gray-600 dark:text-gray-300'>{duration}</p>
+                            <ul className='list-disc list-inside text-gray-700 dark:text-white'>
+                                {details.map((detail, i) => (
+                                    <li key={i}>{detail}</li>
+                                ))}
+                            </ul>
+                        </div>
+                    ))}
+                </section>
 
-<section className='mt-10 max-w-2xl mx-auto'>
-    <h3 className='text-2xl font-semibold mb-4 dark:text-white'>Certifications</h3>
-    <ul className='list-disc list-inside text-gray-700 dark:text-white'>
-        {certifications.map((certification, idx) => (
-            <li key={idx}>{certification}</li>
-        ))}
-    </ul>
-</section>
+                <section className='mt-10 max-w-2xl mx-auto'>
+                    <h3 className='text-2xl font-semibold mb-4 dark:text-white'>Achievements</h3>
+                    <ul className='list-disc list-inside text-gray-700 dark:text-white'>
+                        {achievements.map((achievement, idx) => (
+                            <li key={idx}>{achievement}</li>
+                        ))}
+                    </ul>
+                </section>
+
+                <section className='mt-10 max-w-2xl mx-auto'>
+                    <h3 className='text-2xl font-semibold mb-4 dark:text-white'>Certifications</h3>
+                    <ul className='list-disc list-inside text-gray-700 dark:text-white'>
+                        {certifications.map((certification, idx) => (
+                            <li key={idx}>{certification}</li>
+                        ))}
+                    </ul>
+                </section>
 
             </motion.div>
         </motion.div>
