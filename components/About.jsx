@@ -81,6 +81,49 @@ const About = ({isDarkMode}) => {
                         </motion.li>
                     ))}
                 </motion.ul>
+              {/* New Sections */}
+
+<section className='mt-10 max-w-2xl mx-auto'>
+    <h3 className='text-2xl font-semibold mb-4 dark:text-white'>Links</h3>
+    <ul className='list-disc list-inside text-gray-700 dark:text-white'>
+        <li><a href={links.linkedin} target='_blank' rel='noopener noreferrer' className='underline'>LinkedIn</a></li>
+        <li><a href={links.github} target='_blank' rel='noopener noreferrer' className='underline'>GitHub</a></li>
+    </ul>
+</section>
+
+<section className='mt-10 max-w-2xl mx-auto'>
+    <h3 className='text-2xl font-semibold mb-4 dark:text-white'>Internships</h3>
+    {internships.map(({ company, role, duration, details }, idx) => (
+        <div key={idx} className='mb-6'>
+            <h4 className='font-semibold dark:text-white'>{company} | {role}</h4>
+            <p className='italic text-sm text-gray-600 dark:text-gray-300'>{duration}</p>
+            <ul className='list-disc list-inside text-gray-700 dark:text-white'>
+                {details.map((detail, i) => (
+                    <li key={i}>{detail}</li>
+                ))}
+            </ul>
+        </div>
+    ))}
+</section>
+
+<section className='mt-10 max-w-2xl mx-auto'>
+    <h3 className='text-2xl font-semibold mb-4 dark:text-white'>Achievements</h3>
+    <ul className='list-disc list-inside text-gray-700 dark:text-white'>
+        {achievements.map((achievement, idx) => (
+            <li key={idx}>{achievement}</li>
+        ))}
+    </ul>
+</section>
+
+<section className='mt-10 max-w-2xl mx-auto'>
+    <h3 className='text-2xl font-semibold mb-4 dark:text-white'>Certifications</h3>
+    <ul className='list-disc list-inside text-gray-700 dark:text-white'>
+        {certifications.map((certification, idx) => (
+            <li key={idx}>{certification}</li>
+        ))}
+    </ul>
+</section>
+
             </motion.div>
         </motion.div>
     </motion.div>
