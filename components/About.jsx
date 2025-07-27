@@ -1,178 +1,144 @@
 import { assets, infoList, toolsData } from '@/assets/assets'
 import Image from 'next/image'
-import React from 'react'
+import React, { useState } from 'react'
 import { motion } from "motion/react"
 
-const About = ({isDarkMode}) => {
-
-  const links = {
-    linkedin: 'https://www.linkedin.com/in/shobhit-raj9973/',
-    github: 'https://github.com/lucifer9973'
-  };
-
-  const internships = [
-    {
-      company: 'AICTE-Google',
-      role: 'Android Developer Intern',
-      duration: 'Aug 2023 – Dec 2023 | Remote',
-      details: [
-        'Built Android app with intuitive Material UI using best practices.',
-        'Integrated Firebase and cloud tools for real-time AI-powered features.'
-      ]
-    },
-    {
-      company: 'Keploy',
-      role: 'API Fellow',
-      duration: 'May 2024 – Jul 2024 | Remote',
-      details: [
-        'Hands-on API development and testing using Postman and OpenAPI.',
-        'Contributed to open source and solved backend debugging tasks.'
-      ]
-    }
-  ];
-
-  const achievements = [
-    'Completed AICTE-Google Developer Android Training Program.',
-    'Completed AICTE-Google AI/ML Internship with cloud integration.',
-    'Top 5% in HackerRank SQL and Problem Solving Certification.',
-    'Successfully contributed to open source in Keploy Fellowship.',
-  ];
-
-  const certifications = [
-    'AWS Academy Cloud Computing Badge',
-    'Cisco JavaScript Certification',
-    'HackerRank Problem Solving (Basic)',
-    'HackerRank SQL (Basic)',
-    'Cisco Cybersecurity',
-    'Cisco Python Essentials',
-    'Cisco CCNA – Networking & Automation'
-  ];
+const About = ({ isDarkMode, links, internships, achievements, certifications }) => {
+  const [showInternships, setShowInternships] = useState(false);
+  const [showAchievements, setShowAchievements] = useState(false);
+  const [showCertifications, setShowCertifications] = useState(false);
 
   return (
     <motion.div id='about' className='w-full px-[12%] py-10 scroll-mt-20'
-    initial={{opacity: 0}}
-    whileInView={{opacity: 1}}
-    transition={{duration: 1}}
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 1 }}
     >
-      <motion.h4 
-      initial={{opacity: 0, y: -20}}
-      whileInView={{opacity: 1, y: 0}}
-      transition={{duration: 0.5, delay: 0.3}}
-      className='text-center mb-2 text-lg font-Ovo'>
+      <motion.h4
+        initial={{ opacity: 0, y: -20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.3 }}
+        className='text-center mb-2 text-lg font-Ovo'>
         Introduction</motion.h4>
 
-      <motion.h2 
-      initial={{opacity: 0, y: -20}}
-      whileInView={{opacity: 1, y: 0}}
-      transition={{duration: 0.5, delay: 0.5}}
-      className='text-center text-5xl font-Ovo'>
+      <motion.h2
+        initial={{ opacity: 0, y: -20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.5 }}
+        className='text-center text-5xl font-Ovo'>
         About Me</motion.h2>
 
-        <motion.div 
-        initial={{opacity: 0}}
-        whileInView={{opacity: 1}}
-        transition={{duration: 0.8}}
-        className='flex w-full flex-col lg:flex-row items-center gap-20 my-20'>
-            <motion.div
-            initial={{opacity: 0, scale: 0.9}}
-            whileInView={{opacity: 1, scale: 1}}
-            transition={{duration: 0.6}}
-            className='w-64 sm:w-80 rounded-3xl max-w-none'>
-            <Image src={assets.profilepicture} alt='user' className='w-full rounded-3xl'/>
-            </motion.div>
-            <motion.div 
-            initial={{opacity: 0}}
-            whileInView={{opacity: 1}}
-            transition={{duration: 0.6, delay: 0.8}}
-            className='flex-1'>
-                <p className='mb-10 max-w-2xl font-Ovo'
-                >I'm a passionate and detail-oriented software developer with hands-on experience in building scalable web and mobile applications using modern technologies like Python, JavaScript (React.js, Node.js), MongoDB, and Firebase. I enjoy transforming ideas into real-world solutions and have built full-stack applications, RESTful APIs, and interactive Android apps using Kotlin and Jetpack Compose.</p>
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.8 }}
+        className='grid grid-cols-1 lg:grid-cols-4 gap-8 items-start my-20'>
 
-                <motion.ul
-                initial={{opacity: 0}}
-                whileInView={{opacity: 1}}
-                transition={{duration: 0.8, delay: 1}}
-                className='grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-2xl'>
-                    {infoList.map(({icon, iconDark, title, description}, index)=>(  
-                        <motion.li 
-                        whileHover={{scale: 1.05}}
-                        className='border-[0.5px] border-gray-400 rounded-xl p-6 cursor-pointer hover:bg-lightHover hover:-translate-y-1 duration-500 hover:shadow-black dark:border-white dark:hover:shadow-white dark:hover:bg-darkHover/50'
-                         key={index}>
-                            <Image src={isDarkMode ? iconDark : icon} alt={title} className='w-7 mt-3'/>
-                            <h3 className='my-4 font-semibold text-gray-700 dark:text-white'>{title}</h3>
-                            <p className='text-gray-600 text-sm dark:text-white/80'>{description}</p>
-                        </motion.li>
-                    ))}
-                </motion.ul>
-
-                <motion.h4
-                initial={{ y: 20, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                transition={{ delay: 1.3, duration: 0.5 }}
-                className='my-6 text-gray-700 font-Ovo dark:text-white/80'>Tools I use</motion.h4>
-
-                <motion.ul
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                transition={{ delay: 1.5, duration: 0.6 }}
-                className='flex items-center gap-3 sm:gap-5'>
-                    {toolsData.map((tool, index)=>(  
-                        <motion.li 
-                        whileHover={{ scale: 1.1 }}
-                        className='flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-400 rounded-lg cursor-pointer hover:-translate-y-1 duration-500'
-                         key={index}>
-                            <Image src={tool} alt='Tool' className='w-5 sm:w-7'/>
-                        </motion.li>
-                    ))}
-                </motion.ul>
-
-                {/* New Sections */}
-
-                <section className='mt-10 max-w-2xl mx-auto'>
-                    <h3 className='text-2xl font-semibold mb-4 dark:text-white'>Links</h3>
-                    <ul className='list-disc list-inside text-gray-700 dark:text-white'>
-                        <li><a href={links.linkedin} target='_blank' rel='noopener noreferrer' className='underline'>LinkedIn</a></li>
-                        <li><a href={links.github} target='_blank' rel='noopener noreferrer' className='underline'>GitHub</a></li>
-                    </ul>
-                </section>
-
-                <section className='mt-10 max-w-2xl mx-auto'>
-                    <h3 className='text-2xl font-semibold mb-4 dark:text-white'>Internships</h3>
-                    {internships.map(({ company, role, duration, details }, idx) => (
-                        <div key={idx} className='mb-6'>
-                            <h4 className='font-semibold dark:text-white'>{company} | {role}</h4>
-                            <p className='italic text-sm text-gray-600 dark:text-gray-300'>{duration}</p>
-                            <ul className='list-disc list-inside text-gray-700 dark:text-white'>
-                                {details.map((detail, i) => (
-                                    <li key={i}>{detail}</li>
-                                ))}
-                            </ul>
-                        </div>
-                    ))}
-                </section>
-
-                <section className='mt-10 max-w-2xl mx-auto'>
-                    <h3 className='text-2xl font-semibold mb-4 dark:text-white'>Achievements</h3>
-                    <ul className='list-disc list-inside text-gray-700 dark:text-white'>
-                        {achievements.map((achievement, idx) => (
-                            <li key={idx}>{achievement}</li>
-                        ))}
-                    </ul>
-                </section>
-
-                <section className='mt-10 max-w-2xl mx-auto'>
-                    <h3 className='text-2xl font-semibold mb-4 dark:text-white'>Certifications</h3>
-                    <ul className='list-disc list-inside text-gray-700 dark:text-white'>
-                        {certifications.map((certification, idx) => (
-                            <li key={idx}>{certification}</li>
-                        ))}
-                    </ul>
-                </section>
-
-            </motion.div>
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6 }}
+          className='col-span-1 flex justify-center lg:justify-start items-start'>
+          <Image src={assets.profilepicture} alt='user' className='w-64 sm:w-80 rounded-3xl' />
         </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.8 }}
+          className='col-span-3'>
+
+          <p className='mb-10 max-w-2xl font-Ovo'>
+            I'm a passionate and detail-oriented software developer with hands-on experience in building scalable web and mobile applications using modern technologies like Python, JavaScript (React.js, Node.js), MongoDB, and Firebase. I enjoy transforming ideas into real-world solutions and have built full-stack applications, RESTful APIs, and interactive Android apps using Kotlin and Jetpack Compose.
+          </p>
+
+          <motion.ul
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 1 }}
+            className='grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-2xl'>
+            {infoList.map(({ icon, iconDark, title, description }, index) => (
+              <motion.li
+                whileHover={{ scale: 1.05 }}
+                className='border-[0.5px] border-gray-400 rounded-xl p-6 cursor-pointer hover:bg-lightHover hover:-translate-y-1 duration-500 hover:shadow-black dark:border-white dark:hover:shadow-white dark:hover:bg-darkHover/50'
+                key={index}>
+                <Image src={isDarkMode ? iconDark : icon} alt={title} className='w-7 mt-3' />
+                <h3 className='my-4 font-semibold text-gray-700 dark:text-white'>{title}</h3>
+                <p className='text-gray-600 text-sm dark:text-white/80'>{description}</p>
+              </motion.li>
+            ))}
+          </motion.ul>
+
+          <motion.h4
+            initial={{ y: 20, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            transition={{ delay: 1.3, duration: 0.5 }}
+            className='my-6 text-gray-700 font-Ovo dark:text-white/80'>Tools I use</motion.h4>
+
+          <motion.ul
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ delay: 1.5, duration: 0.6 }}
+            className='flex items-center gap-3 sm:gap-5'>
+            {toolsData.map((tool, index) => (
+              <motion.li
+                whileHover={{ scale: 1.1 }}
+                className='flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-400 rounded-lg cursor-pointer hover:-translate-y-1 duration-500'
+                key={index}>
+                <Image src={tool} alt='Tool' className='w-5 sm:w-7' />
+              </motion.li>
+            ))}
+          </motion.ul>
+
+          <section className='mt-10 max-w-2xl mx-auto'>
+            <h3 className='text-2xl font-semibold mb-4 dark:text-white'>Links</h3>
+            <ul className='list-disc list-inside text-gray-700 dark:text-white'>
+              <li><a href={links.linkedin} target='_blank' rel='noopener noreferrer' className='underline'>LinkedIn</a></li>
+              <li><a href={links.github} target='_blank' rel='noopener noreferrer' className='underline'>GitHub</a></li>
+            </ul>
+          </section>
+
+          <section className='mt-10 max-w-2xl mx-auto'>
+            <button onClick={() => setShowInternships(!showInternships)} className='text-xl font-semibold mb-2 text-left dark:text-white'>Internships</button>
+            {showInternships && internships.map(({ company, role, duration, details }, idx) => (
+              <div key={idx} className='mb-6'>
+                <h4 className='font-semibold dark:text-white'>{company} | {role}</h4>
+                <p className='italic text-sm text-gray-600 dark:text-gray-300'>{duration}</p>
+                <ul className='list-disc list-inside text-gray-700 dark:text-white'>
+                  {details.map((detail, i) => (
+                    <li key={i}>{detail}</li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </section>
+
+          <section className='mt-10 max-w-2xl mx-auto'>
+            <button onClick={() => setShowAchievements(!showAchievements)} className='text-xl font-semibold mb-2 text-left dark:text-white'>Achievements</button>
+            {showAchievements && (
+              <ul className='list-disc list-inside text-gray-700 dark:text-white'>
+                {achievements.map((achievement, idx) => (
+                  <li key={idx}>{achievement}</li>
+                ))}
+              </ul>
+            )}
+          </section>
+
+          <section className='mt-10 max-w-2xl mx-auto'>
+            <button onClick={() => setShowCertifications(!showCertifications)} className='text-xl font-semibold mb-2 text-left dark:text-white'>Certifications</button>
+            {showCertifications && (
+              <ul className='list-disc list-inside text-gray-700 dark:text-white'>
+                {certifications.map((certification, idx) => (
+                  <li key={idx}>{certification}</li>
+                ))}
+              </ul>
+            )}
+          </section>
+
+        </motion.div>
+      </motion.div>
     </motion.div>
   )
 }
 
-export default About
+export default About;
