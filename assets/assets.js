@@ -89,6 +89,35 @@ export const assets = {
     profilepicture,
     profilepicture_icon,
 };
+    export const internships = [
+    {
+        company: 'AICTE-Google',
+        role: 'Android Developer Intern',
+        duration: 'Aug 2023 – Oct 2023 | Remote',
+        details: [
+            'Developed a fully functional Android app with intuitive Material UI using Android Studio.',
+            'Gained experience in activity lifecycle, user interface components, and local data persistence.'
+        ]
+    },
+    {
+        company: 'AICTE-Google',
+        role: 'AI/ML Intern',
+        duration: 'June 2023 – Aug 2023 | Remote',
+        details: [
+            'Integrated AI-powered features in Android apps using Firebase ML Kit and cloud tools.',
+            'Worked on deploying models and optimizing them for mobile platforms.'
+        ]
+    },
+    {
+        company: 'Keploy',
+        role: 'API Fellow (Master of APIs)',
+        duration: 'Nov 2023 – Jan 2024 | Remote',
+        details: [
+            'Built and tested production-grade REST APIs, contributed to open-source API testing platform.',
+            'Solved real-world backend challenges and collaborated in a dev team using Git/GitHub workflows.'
+        ]
+    }
+];
 
 export const workData = [
     {
@@ -134,6 +163,21 @@ export const serviceData = [
         description: 'Worked on supervised ML models for classification tasks. Consistently practice Data Structures and Algorithms on platforms like LeetCode and HackerRank to improve problem-solving efficiency.'
     },
 ]
+export const achievements = [
+    'Selected as a Keploy API Fellow for solving real-world API testing challenges.',
+    'Received certificate of completion from AICTE-Google Android Developer program.',
+    'Built and deployed multiple full-stack apps integrating third-party APIs and cloud databases.',
+    'Recognized for consistent problem-solving skills on platforms like HackerRank and LeetCode.'
+];
+export const certifications = [
+    'AWS Academy Cloud Computing Badge',
+    'Cisco JavaScript Certification',
+    'HackerRank Problem Solving (Basic)',
+    'HackerRank SQL (Basic)',
+    'Cisco Cybersecurity',
+    'Cisco Python 2 Essentials',
+    'Cisco CCNA – Networking and Automation'
+];
 
 export const infoList = [
     {
