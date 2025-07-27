@@ -3,7 +3,7 @@ import Image from 'next/image'
 import React, { useState } from 'react'
 import { motion } from "motion/react"
 
-const About = ({ isDarkMode, links, internships, achievements, certifications }) => {
+const About = ({ isDarkMode, internships, achievements, certifications }) => {
   const [showInternships, setShowInternships] = useState(false);
   const [showAchievements, setShowAchievements] = useState(false);
   const [showCertifications, setShowCertifications] = useState(false);
@@ -89,14 +89,6 @@ const About = ({ isDarkMode, links, internships, achievements, certifications })
               </motion.li>
             ))}
           </motion.ul>
-
-          <section className='mt-10 max-w-2xl mx-auto'>
-            <h3 className='text-2xl font-semibold mb-4 dark:text-white'>Links</h3>
-            <ul className='list-disc list-inside text-gray-700 dark:text-white'>
-              <li><a href={links.linkedin} target='_blank' rel='noopener noreferrer' className='underline'>LinkedIn</a></li>
-              <li><a href={links.github} target='_blank' rel='noopener noreferrer' className='underline'>GitHub</a></li>
-            </ul>
-          </section>
 
           <section className='mt-10 max-w-2xl mx-auto'>
             <button onClick={() => setShowInternships(!showInternships)} className='text-xl font-semibold mb-2 text-left dark:text-white'>Internships</button>
